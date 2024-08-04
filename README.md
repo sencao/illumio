@@ -1,26 +1,17 @@
 [Design and Implementation Considerations]
 
-1, Since it is required to avoid using non-default libraries, I picked Java as a bare programming language. Otherwise, it would be much less coding.
-
-2, Beside functionality, it is not clear what the assessment is looking for. I put some effort on object-oriented design with a class hierarchy. Hopefully it is not over engineering.
-
-3, I assume there is no concurrency requirement. So, I did not handle race conditions.
-
-4, Speed and Space performance are considered. The design and implementation can load a larger lookup table to handle a larger flow log with speed than the required max sizes.
-
-5, I assume a flow log contains records in the format as below:   
+1. Since it is required to avoid using non-default libraries, I picked Java as a bare programming language. Otherwise, it would be much less coding.
+2. Beside functionality, it is not clear what the assessment is looking for. I put some effort on object-oriented design with a class hierarchy. Hopefully it is not over engineering.
+3. I assume there is no concurrency requirement. So, I did not handle race conditions.
+4. Speed and Space performance are considered. The design and implementation can load a larger lookup table to handle a larger flow log with speed than the required max sizes.
+5. I assume a flow log contains records in the format as below:   
     <version> <account-id> <interface-id> <srcaddr> <dstaddr> <srcport> <dstport> <protocol> <packets> <bytes> <start> <end> <action> <log-status>
-I only checked if dstPort is a number and protocol code is valid. The flow logs used in the testing are just composed by following the above syntax. The traffic could be irrealistic. 
-
-6, I assume tag is case insensitive.
-
-7, when loading lookup table, if the tag field contains space, I only use the substring before the first space as tag. This is illustrated by the given example.
-
-8, Protocols are defined by https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml. I only hardcoded a few protocols, and such hardcoding would not affect speed and space performance.
-
-9, I assume there may be some ill formatted lines in the lookup table file and flow log files. The implementation catches wrong file format in the lookup table file, and skips wrong lines in the lookup table file and flow logs.
-
-10, I assume that Tag Counts are in an arbitrary order but with untagged first, and Port/Protocol Combination Counts are in an arbitrary order.
+I only checked if dstPort is a number and protocol code is valid. The flow logs used in the testing are just composed by following the above syntax. The traffic could be irrealistic.
+6. I assume tag is case insensitive.
+7. when loading lookup table, if the tag field contains space, I only use the substring before the first space as tag. This is illustrated by the given example.
+8. Protocols are defined by https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml. I only hardcoded a few protocols, and such hardcoding would not affect speed and space performance.
+9. I assume there may be some ill formatted lines in the lookup table file and flow log files. The implementation catches wrong file format in the lookup table file, and skips wrong lines in the lookup table file and flow logs.
+10. I assume that Tag Counts are in an arbitrary order but with untagged first, and Port/Protocol Combination Counts are in an arbitrary order.
 
 [Repository]
 
@@ -29,25 +20,25 @@ I only checked if dstPort is a number and protocol code is valid. The flow logs 
 [Code Structure]
 
 1. the source code is under folder src.
-2, build and execution scripts are under folder bin.
-3, class files are under folder classes
-4, the input files for lookup tables and flow logs are under folder tests. Lookup tables are named as lookup[x].csv. Flow logs are name as flow[y].log.
-5, the output files are under folder tests\output. Output files are named as output[x]_[y].txt.
+2. build and execution scripts are under folder bin.
+3. class files are under folder classes.
+4. the input files for lookup tables and flow logs are under folder tests. Lookup tables are named as lookup[x].csv. Flow logs are name as flow[y].log.
+5. the output files are under folder tests\output. Output files are named as output[x]_[y].txt.
 
 [Environment]
 
-1, JDK is required to compile and run java code.
-2, scripts for build and execution commands require BASH shell.
+1. JDK is required to compile and run java code.
+2. scripts for build and execution commands require BASH shell.
 
 [Commands]
 
-1, build project
+1. build project
 
     cd bin
     
     ./build.sh
 
-2, parse flow logs
+2. parse flow logs
 
     under folder bin
     
@@ -55,7 +46,7 @@ I only checked if dstPort is a number and protocol code is valid. The flow logs 
 
 [Tests]
 
-1, lookup tables
+1. lookup tables
 
     lookup.csv: no such lookup table
     
@@ -72,7 +63,7 @@ I only checked if dstPort is a number and protocol code is valid. The flow logs 
     lookup5.csv: lookup table containing more than 10000 mappings 
     
 
-2, flow logs
+2. flow logs
 
     flow0.log: empty flow log
     
