@@ -1,0 +1,16 @@
+Tag	Count
+Untagged	50400
+sp_80	25200
+sp_443	25200
+sp_53	25200
+sp_31	25200
+sp_23	25200
+sp_25	25200
+Port	Protocol	Count
+53	udp	25200
+0	icmp	50400
+23	tcp	25200
+31	udp	25200
+25	tcp	25200
+443	tcp	25200
+80	tcp	25200

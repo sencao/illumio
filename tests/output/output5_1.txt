@@ -1,0 +1,16 @@
+Tag	Count
+Untagged	2
+sp_80	1
+sp_443	1
+sp_53	1
+sp_31	1
+sp_23	1
+sp_25	1
+Port	Protocol	Count
+53	udp	1
+0	icmp	2
+23	tcp	1
+31	udp	1
+25	tcp	1
+443	tcp	1
+80	tcp	1

@@ -1,0 +1,10 @@
+Tag	Count
+Untagged	201600
+Port	Protocol	Count
+53	udp	25200
+0	icmp	50400
+23	tcp	25200
+31	udp	25200
+25	tcp	25200
+443	tcp	25200
+80	tcp	25200
